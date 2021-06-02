@@ -2,7 +2,7 @@
 
 python version 3.9.5
 
-using pylint, autopep8, pylance
+vscode - using pylint, autopep8, pylance
 
 pipenv install django
 
@@ -103,3 +103,11 @@ head.html
     <link rel="stylesheet" href="{% static 'base.css' %}" />
 </head>
 ```
+
+===
+
+4. Model, DB
+
+py.exe .\manage.py makemigrations
+
+py.exe .\manage.py migrate
