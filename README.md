@@ -64,7 +64,42 @@ TEMPLATES = [
         ...
         'DIRS': [os.path.join(BASE_DIR, 'templates')],
         ...
+```
 
 ---
 
 include, extends, block 구문을 이용한 뼈대 html 작업
+
+===
+
+3. static
+
+정적 파일 관리하기
+https://docs.djangoproject.com/ko/3.2/howto/static-files/
+
+---
+
+settings.py
+
+```
+...
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATICFILES_DIRS = [BASE_DIR / 'static']
+...
+```
+
+---
+
+css 파일 적용
+
+head.html
+
+```
+{% load static %}
+
+<head>
+...
+    <link rel="stylesheet" href="{% static 'base.css' %}" />
+</head>
+```
