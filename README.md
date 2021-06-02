@@ -51,3 +51,20 @@ environ.Env.read_env(
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env('SECRET_KEY')
 ```
+
+===
+
+2. templates
+
+settings.py
+
+```
+TEMPLATES = [
+    {
+        ...
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        ...
+
+---
+
+include, extends, block 구문을 이용한 뼈대 html 작업
