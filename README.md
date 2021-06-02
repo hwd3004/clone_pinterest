@@ -115,3 +115,7 @@ py.exe .\manage.py migrate
 ===
 
 5. CreateView
+
+===
+
+6. Login, Logout
