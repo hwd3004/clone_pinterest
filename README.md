@@ -157,3 +157,9 @@ pipenv install django-bootstrap4
 py.exe .\manage.py createsuperuser
 
 pipenv install pillow
+
+===
+
+15. Profileapp, ModelForm
+
+py.exe .\manage.py startapp profileapp
