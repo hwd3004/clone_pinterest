@@ -145,3 +145,7 @@ pipenv install django-bootstrap4
 ===
 
 12. Authentication
+
+===
+
+13. Decorator
