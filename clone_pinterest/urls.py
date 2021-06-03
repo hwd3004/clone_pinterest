@@ -13,6 +13,10 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf import settings
+from django.conf.urls.static import static
+
+from clone_pinterest import settings
 from django.contrib import admin
 from django.urls import path
 from django.urls.conf import include
@@ -21,4 +25,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('accountapp.urls')),
     path('profiles/', include('profileapp.urls')),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# settings 의 import 가 다른 걸로 되어있어서 img 파일의 경로를 못 찾는 에러가 발생했었다

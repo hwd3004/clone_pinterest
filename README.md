@@ -171,3 +171,7 @@ py.exe .\manage.py startapp profileapp
 py.exe .\manage.py makemigrations
 
 py.exe .\manage.py migrate
+
+===
+
+17. Profileapp
