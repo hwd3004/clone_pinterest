@@ -149,3 +149,11 @@ pipenv install django-bootstrap4
 ===
 
 13. Decorator
+
+===
+
+14. superuser, media
+
+py.exe .\manage.py createsuperuser
+
+pipenv install pillow
