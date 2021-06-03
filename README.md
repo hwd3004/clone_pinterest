@@ -141,3 +141,7 @@ pipenv install django-bootstrap4
 ===
 
 11. Bug fix
+
+===
+
+12. Authentication
