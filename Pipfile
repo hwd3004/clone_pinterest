@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 django = "*"
 django-environ = "*"
+django-bootstrap4 = "*"
 
 [dev-packages]
 pylint = "*"

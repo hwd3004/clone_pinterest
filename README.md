@@ -119,3 +119,9 @@ py.exe .\manage.py migrate
 ===
 
 6. Login, Logout
+
+===
+
+7. django-bootstrap4
+
+pipenv install django-bootstrap4
