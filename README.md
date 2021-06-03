@@ -125,3 +125,7 @@ py.exe .\manage.py migrate
 7. django-bootstrap4
 
 pipenv install django-bootstrap4
+
+===
+
+8. DetailView
