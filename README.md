@@ -175,3 +175,7 @@ py.exe .\manage.py migrate
 ===
 
 17. Profileapp
+
+===
+
+18. get_success_url, refactoring
