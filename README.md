@@ -133,3 +133,7 @@ pipenv install django-bootstrap4
 ===
 
 9. UpdateView
+
+===
+
+10. DeleteView
