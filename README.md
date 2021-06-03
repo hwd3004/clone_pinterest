@@ -179,3 +179,9 @@ py.exe .\manage.py migrate
 ===
 
 18. get_success_url, refactoring
+
+===
+
+19. MagicGrid
+
+py.exe .\manage.py startapp articleapp
