@@ -137,3 +137,7 @@ pipenv install django-bootstrap4
 ===
 
 10. DeleteView
+
+===
+
+11. Bug fix
