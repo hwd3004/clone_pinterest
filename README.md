@@ -203,3 +203,7 @@ py.exe .\manage.py startapp commentapp
 ===
 
 23. Commentapp
+
+===
+
+24. Responsive Layout
