@@ -199,3 +199,7 @@ py.exe .\manage.py startapp articleapp
 22. Mixin, Commentapp
 
 py.exe .\manage.py startapp commentapp
+
+===
+
+23. Commentapp
