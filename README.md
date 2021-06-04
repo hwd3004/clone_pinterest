@@ -189,3 +189,7 @@ py.exe .\manage.py startapp articleapp
 ===
 
 20. Articleapp
+
+===
+
+21. ListView, Pagination
