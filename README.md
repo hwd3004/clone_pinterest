@@ -185,3 +185,7 @@ py.exe .\manage.py migrate
 19. MagicGrid
 
 py.exe .\manage.py startapp articleapp
+
+===
+
+20. Articleapp
