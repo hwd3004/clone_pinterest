@@ -193,3 +193,9 @@ py.exe .\manage.py startapp articleapp
 ===
 
 21. ListView, Pagination
+
+===
+
+22. Mixin, Commentapp
+
+py.exe .\manage.py startapp commentapp
