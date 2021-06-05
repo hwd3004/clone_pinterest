@@ -280,3 +280,10 @@ articleapp, projectapp 둘 다 사용 가능
 py.exe .\manage.py makemigrations
 
 py.exe .\manage.py migrate
+
+===
+
+27. RedirectView, Subscribeapp
+
+py.exe .\manage.py startapp subscribeapp
+
