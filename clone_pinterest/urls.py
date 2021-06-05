@@ -27,5 +27,6 @@ urlpatterns = [
     path('profiles/', include('profileapp.urls')),
     path('articles/', include('articleapp.urls')),
     path('comments/', include('commentapp.urls')),
+    path('projects/', include('projectapp.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 # settings 의 import 가 다른 걸로 되어있어서 img 파일의 경로를 못 찾는 에러가 발생했었다

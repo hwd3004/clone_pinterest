@@ -207,3 +207,68 @@ py.exe .\manage.py startapp commentapp
 ===
 
 24. Responsive Layout
+
+===
+
+25. Projectapp
+
+py.exe .\manage.py startapp projectapp
+
+/clone_pinterest/settings.py
+
+```
+INSTALLED_APPS = [
+    ...
+    'projectapp',
+]
+```
+
+/clone_pinterest/urls.py
+
+```
+urlpatterns = [
+    ...
+    path('projects/', include('projectapp.urls')),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+```
+
+/projectapp/models.py
+
+```
+from django.db import models
+
+class Project(models.Model):
+    ...
+```
+
+/projectapp/forms.py
+
+```
+class ProjectCreationForm(ModelForm):
+    ...
+```
+
+py.exe .\manage.py makemigrations
+
+py.exe .\manage.py migrate
+
+/projectapp/views.py
+
+```
+class ProjectCreateView(CreateView):
+    ...
+
+class ProjectDetailView(DetailView):
+    ...
+
+class ProjectListView(ListView):
+    ...
+```
+
+/projectapp/templates/projectapp/create.html, detail.html, list.html
+app 폴더의 templates 폴더 안에 또 app 폴더 만들어야함에 주의
+
+/templates/snippets/card_project.html
+
+/templates/snippets/pagination.html 수정
+articleapp, projectapp 둘 다 사용 가능
