@@ -272,3 +272,11 @@ app 폴더의 templates 폴더 안에 또 app 폴더 만들어야함에 주의
 
 /templates/snippets/pagination.html 수정
 articleapp, projectapp 둘 다 사용 가능
+
+===
+
+26. MultipleObjectMixin, Projectapp
+
+py.exe .\manage.py makemigrations
+
+py.exe .\manage.py migrate
