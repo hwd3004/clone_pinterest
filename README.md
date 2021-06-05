@@ -287,3 +287,21 @@ py.exe .\manage.py migrate
 
 py.exe .\manage.py startapp subscribeapp
 
+
+===
+
+28. Field Lookup을 사용한 구독 페이지 구현
+
+sql에서
+```
+select ... where project in (...);
+```
+
+이 명령어를 장고에서
+```
+Articles.objects.filter(project__in=projects)
+```
+__ 언더스코어 2개로 구현할 수 있다
+
+Field Lookup 장고 Documentation 링크
+https://docs.djangoproject.com/en/3.1/ref/models/querysets/#field-lookups
