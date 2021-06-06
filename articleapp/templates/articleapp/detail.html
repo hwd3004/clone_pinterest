@@ -18,9 +18,9 @@
       alt=""
     />
 
-    <p>
-      {{ target_article.content }}
-    </p>
+    <div style="text-align: left;">
+      {{ target_article.content | safe }}
+    </div>
 
     {% if target_article.writer == user %}
     <a
