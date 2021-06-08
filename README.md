@@ -315,3 +315,15 @@ Medium Editor
 ===
 
 30. 정리 및 다듬기
+
+===
+
+31. 오라클 클라우드
+
+강의에서는 vultr와 aws에 배포하였으나,
+
+나는 오라클 클라우드에 배포하였음
+
+pipenv를 사용하였으나, 강의와 똑같이
+pip freeze > rerequirements.txt
+로 rerequirements 생성
