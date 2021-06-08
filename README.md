@@ -327,3 +327,9 @@ Medium Editor
 pipenv를 사용하였으나, 강의와 똑같이
 pip freeze > rerequirements.txt
 로 rerequirements 생성
+
+Gunicorn 설치
+
+pipenv install gunicorn
+
+pip freeze > rerequirements.txt

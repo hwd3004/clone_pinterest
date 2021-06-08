@@ -8,6 +8,7 @@ django = "*"
 django-environ = "*"
 django-bootstrap4 = "*"
 pillow = "*"
+gunicorn = "*"
 
 [dev-packages]
 pylint = "*"
