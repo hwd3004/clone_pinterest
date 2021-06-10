@@ -17,7 +17,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from articleapp.views import ArticleListView
-from clone_pinterest import settings
+# from clone_pinterest import settings
+from clone_pinterest.settings import base
 from django.contrib import admin
 from django.urls import path
 from django.urls.conf import include
@@ -32,5 +33,5 @@ urlpatterns = [
     path('comments/', include('commentapp.urls')),
     path('projects/', include('projectapp.urls')),
     path('subscribe/', include('subscribeapp.urls')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(base.MEDIA_URL, document_root=base.MEDIA_ROOT)
 # settings 의 import 가 다른 걸로 되어있어서 img 파일의 경로를 못 찾는 에러가 발생했었다
