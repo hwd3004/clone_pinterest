@@ -16,4 +16,4 @@ RUN pip install mysqlclient
 
 EXPOSE 8000
 
-CMD ["bash", "-c", "python manage.py collectstatic --noinput --settings=clone_pinterest.settings.deploy && python manage.py migrate --settings=clone_pinterest.settings.deploy && gunicorn clone_pinterest.wsgi --env DJANGO_SETTINGS_MODULE=clone_pinterest.settings.deploy --bind 0.0.0.0/8000"]
+CMD ["bash", "-c", "python manage.py collectstatic --noinput --settings=clone_pinterest.settings.deploy && python manage.py migrate --settings=clone_pinterest.settings.deploy && gunicorn clone_pinterest.wsgi --env DJANGO_SETTINGS_MODULE=clone_pinterest.settings.deploy --bind 0.0.0.0:8000"]
