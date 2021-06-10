@@ -330,6 +330,10 @@ docker와 docker portainer 설치
 
 vm에서 docker swarm init
 
+/home 디렉토리에 /django_course 디렉토리 만들어서, sudo chmod 777 django_course/ 해줌
+
+django_course 디렉토리 안에 nginx.conf 복사
+
 포테이너 - 시크릿에서 암호키 설정. MYSQL_ROOT_PASSWORD, MYSQL_PASSWORD, DJANGO_SECRET_KEY
 
 vm에서 /home/ 안에 /django_course/ 생성, /django_course/ 안에 nginx.conf 복사
