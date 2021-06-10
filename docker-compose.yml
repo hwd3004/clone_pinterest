@@ -1,7 +1,7 @@
-version: "3.7"
+version: "3.8"
 services:
     nginx:
-        image: nginx:1.19.5
+        image: nginx:1.21
         networks:
             - network
         volumes:
@@ -33,7 +33,7 @@ services:
             MYSQL_DATABASE: django
             MYSQL_USER: django
             MYSQL_ROOT_PASSWORD_FILE: /run/secrets/MYSQL_PASSWORD
-            MYSQL_PASSWORD_FILE: /run_secrets/MYSQL_ROOT_PASSWORD
+            MYSQL_PASSWORD_FILE: /run/secrets/MYSQL_ROOT_PASSWORD
 
 networks:
     network:

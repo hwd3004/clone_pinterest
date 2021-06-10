@@ -324,159 +324,16 @@ Medium Editor
 
 나는 오라클 클라우드에 배포하였음
 
-pipenv를 사용하였으나, 강의와 똑같이
-pip freeze > rerequirements.txt
-로 rerequirements 생성
+mariadb 포트는 3306, root 계정 열어줌
 
-Gunicorn 설치
+docker와 docker portainer 설치
 
-pipenv install gunicorn
+vm에서 docker swarm init
 
-pip freeze > rerequirements.txt
+포테이너 - 시크릿에서 암호키 설정. MYSQL_ROOT_PASSWORD, MYSQL_PASSWORD, DJANGO_SECRET_KEY
 
----
+vm에서 /home/ 안에 /django_course/ 생성, /django_course/ 안에 nginx.conf 복사
 
-오라클 클라우드 우분투에 도커 포테이너까지 설치가 된 후에 ip주소:9000 접속해서
+포테이너 - 이미지에 dockerfile 업로드. 이름은 django_test_image:5
 
-dockerfile 작성
-```
-FROM python:3.9.5
-
-WORKDIR /home/
-
-RUN git clone -b 31.-오라클-클라우드 --single-branch https://github.com/hwd3004/clone_pinterest.git
-
-WORKDIR /home/clone_pinterest/
-
-RUN pip install -r requirements.txt
-
-RUN pip install gunicorn
-
-RUN echo "SECRET_KEY=암호키입력" > .env
-
-RUN python manage.py migrate
-
-RUN python manage.py collectstatic
-
-EXPOSE 8000
-
-CMD ["gunicorn", "clone_pinterest.wsgi", "--bind", "0.0.0.0:8000"]
-```
-
-images
-build a new image
-이름은 django_test_image:3
-dockerfile 업로드
-build the image
-
-networks
-add network
-nginx-django 생성, 다른건 건들일 필요 없이 생성만.
-
-add container
-이름은 django_container_gunicorn
-advanced container settings에서
-network 탭에서 network를 방금 만든 nginx-django로 해줌
-deploy the container -->
-
-오라클 우분투에서 root 계정 로그인을 열어줌
-파일질라로 루트 계정으로 접속. 22번 포트
-
-nginx.conf 파일 작성
-```
-worker_processes auto;
-
-events {
-    
-}
-
-http {
-    server {
-        listen 80;
-
-        include mime.types;
-
-        location /static/ {
-            alias /data/static/;
-        }
-
-        location /media/ {
-            alias /data/media/;
-        }
-
-        location / {
-            proxy_pass http://django_container_gunicorn:8000;
-            proxy_set_header Host $host;
-            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        }
-    }
-}
-```
-
-home 디렉토리에서 django_course 디렉토리 만들어줌
-nginx.conf 파일을 django_course 디렉토리 안에 넣어줌
-
-도커 포테이너 메뉴에서 volumes 생성
-이름은 static, media 2개 생성
-
-```
-컨테이너 생성
-
-이름은 django_container_gunicorn
-nginx.conf 파일에 있는 proxy_pass 값과 같아야함
-
-image 입력칸에는 django_test_image:3
-이전에 dockerfile 업로드하면서 만든 이미지 이름과 같아야함
-
-advanced container settings에서 network는 nginx-django
-volumes에는 컨테이너 입력칸에 /home/clone_pinterest/staticfiles/
-dockerfile에 있는 WORKDIR /home/clone_pinterest/ 이 주소에서 staticfiles를 추가한 것임
-volume 칸에는 static - local
-
-map additional volume 클릭
-컨테이너 입력칸에 /home/clone_pinterest/media/
-volume 칸에는 media - local
-
-deploy the container 클릭
-
-```
-
-컨테이너 생성
-이름은 nginx, image는 nginx:latest
-publish a new network port 클릭하여서 host와 container 모두 80으로 해줌
-advanced container settings - network에서 nginx-django로 해줌
-volumes에서는
-/data/static/, static - local
-/data/media/, media - local
-/etc/nginx/nginx.conf, 우측의 volume 체크를 bind로 체크해줌, host 입력칸에 /home/django_course/nginx.conf 입력
-
-deploy the container 클릭
-
-volumes 생성
-이름은 database
-
-컨테이너 생성
-이름은 mariadb, image는 mariadb:10.5
-advanced container settings에서 network는 nginx-django
-https://hub.docker.com/_/mariadb 에서 Caveats - Where to Store Data 항목 중,
-/my/own/datadir:/var/lib/mysql 부분에서 /var/lib/mysql 부분 확인
-컨테이너 생성 advanced container settings로 돌아와서, volumes에
-map addtional variable 클릭 후 container 입력칸에 /var/lib/mysql 넣어줌, volume에는 database - local 선택해줌
-advanced container settings에서 env 설정을 해주어야하는데, https://hub.docker.com/_/mariadb 에서 Environment Variables 항목 참고
-MYSQL_ROOT_PASSWORD, MYSQL_DATABASE, MYSQL_USER, MYSQL_PASSWORD 4개의 환경 변수 생성
-각 변수들의 값은 deploy.py에 있는 DATABASE 딕셔너리와 맞춰주면 됨
-각각 password1234, django, django, password1234
-deploy 해줌
-
----
-
-개발 / 배포 설정 분리
-
-clone_pinterest 폴더 밑에
-settings 폴더를 만들고, 그 안에 __init__.py 파일 하나 생성
-clone_pinterest 폴더 안에 있던 settings.py를 settings 폴더 안으로 옮겨줌
-settings.py 이름을 base.py로 바꿔줌
-deploy.py와 local.py 파일을 생성해줌
-나머지는 git을 확인
-
-오라클 클라우드에서 클라우드 컴퓨터의 포트 3306 개방해줌
+포테이너 - 스택에 docker-compose.yml 업로드. 이름은 django_stack으로 하고 기다려줌.
