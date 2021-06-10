@@ -452,18 +452,21 @@ volumes에서는
 
 deploy the container 클릭
 
+volumes 생성
+이름은 database
+
 컨테이너 생성
 이름은 mariadb, image는 mariadb:10.5
-advanced container settings의 env 탭에서
-add environment variable 클릭
-https://hub.docker.com/_/mariadb 참고
-```
-Starting a MariaDB instance is simple:
-
-$ docker run -p 127.0.0.1:3306:3306  --name some-mariadb -e MARIADB_ROOT_PASSWORD=my-secret-pw -d mariadb:tag
-```
-부분에서 MARIADB_ROOT_PASSWORD 를 입력
-value 입력칸에는 임시로 일단 password1234
+advanced container settings에서 network는 nginx-django
+https://hub.docker.com/_/mariadb 에서 Caveats - Where to Store Data 항목 중,
+/my/own/datadir:/var/lib/mysql 부분에서 /var/lib/mysql 부분 확인
+컨테이너 생성 advanced container settings로 돌아와서, volumes에
+map addtional variable 클릭 후 container 입력칸에 /var/lib/mysql 넣어줌, volume에는 database - local 선택해줌
+advanced container settings에서 env 설정을 해주어야하는데, https://hub.docker.com/_/mariadb 에서 Environment Variables 항목 참고
+MYSQL_ROOT_PASSWORD, MYSQL_DATABASE, MYSQL_USER, MYSQL_PASSWORD 4개의 환경 변수 생성
+각 변수들의 값은 deploy.py에 있는 DATABASE 딕셔너리와 맞춰주면 됨
+각각 password1234, django, django, password1234
+deploy 해줌
 
 ---
 
@@ -475,3 +478,5 @@ clone_pinterest 폴더 안에 있던 settings.py를 settings 폴더 안으로 �
 settings.py 이름을 base.py로 바꿔줌
 deploy.py와 local.py 파일을 생성해줌
 나머지는 git을 확인
+
+오라클 클라우드에서 클라우드 컴퓨터의 포트 3306 개방해줌
