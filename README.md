@@ -351,3 +351,7 @@ py.exe .\manage.py startapp likeapp
 py.exe .\manage.py makemigrations
 
 py.exe .\manage.py migrate
+
+---
+
+33. Transaction
