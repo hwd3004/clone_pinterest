@@ -341,3 +341,13 @@ vm에서 /home/ 안에 /django_course/ 생성, /django_course/ 안에 nginx.conf
 포테이너 - 이미지에 dockerfile 업로드. 이름은 django_test_image:5
 
 포테이너 - 스택에 docker-compose.yml 업로드. 이름은 django_stack으로 하고 기다려줌.
+
+---
+
+32. Likeapp
+
+py.exe .\manage.py startapp likeapp
+
+py.exe .\manage.py makemigrations
+
+py.exe .\manage.py migrate
